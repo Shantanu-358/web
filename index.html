@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            display: inline-block;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const name = document.forms["registration"]["name"].value;
+            const email = document.forms["registration"]["email"].value;
+            const password = document.forms["registration"]["password"].value;
+            const contact = document.forms["registration"]["contact"].value;
+            const address = document.forms["registration"]["address"].value;
+
+            if (name.length < 6 || !/^[a-zA-Z]+$/.test(name)) {
+                alert("Name should contain alphabets and the length should not be less than 6 characters.");
+                return false;
+            }
+
+            if (email === "" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("E-mail id should not contain any invalid characters and must follow the standard pattern name@domain.com.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password should not be less than 6 characters length.");
+                return false;
+            }
+
+            if (!/^\d{10}$/.test(contact)) {
+                alert("Mobile number should contain exactly 10 digits.");
+                return false;
+            }
+
+            if (address === "") {
+                alert("Address should not be empty.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form name="registration" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" required placeholder="Enter name"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address"><br>
+        <label for="contact">Contact:</label><br>
+        <input type="number" id="contact"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" required placeholder="Enter email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" required placeholder="Enter password"><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Session Tracking Example</title>
+    <script>
+        function setSession() {
+            var sessionID = Math.random().toString(36).substring(2, 15);
+            sessionStorage.setItem("sessionID", sessionID);
+        }
+
+        function getSession() {
+            var sessionID = sessionStorage.getItem("sessionID");
+            if (sessionID) {
+                alert("Session ID: " + sessionID);
+            } else {
+                alert("No session ID found.");
+            }
+        }
+    </script>
+</head>
+
+<body onload="setSession()">
+    <h1>Session Tracking Example</h1>
+    <button onclick="getSession()">Get Session ID</button>
+</body>
+
+</html>
